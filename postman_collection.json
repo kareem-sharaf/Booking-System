@@ -1,0 +1,73 @@
+{
+  "info": {
+    "_postman_id": "b0a8653d-d72c-4a95-a590-3df8671de44a",
+    "name": "Booking System API",
+    "description": "Postman collection for the Booking System API endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Booking",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+        "raw": "{\n    \"customer_name\": \"Kareem sharaf\",\n    \"phone\": \"+1 (202) 555-0198\",\n    \"booking_date\": \"2025-12-01 14:30:00\",\n    \"service_type\": \"Massage\",\n    \"notes\": \"Client prefers aromatherapy session.\",\n    \"status\": \"pending\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/bookings",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "bookings"
+          ]
+        },
+        "description": "Creates a new booking.\n\nRequired fields:\n- customer_name (string)\n- phone (string)\n- booking_date (date/time string)\n- service_type (Haircut | Massage | Cleaning | Consultation | Facial Treatment)\n\nOptional fields:\n- notes (string)\n- status (pending | confirmed | cancelled)"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 201', function () {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              "",
+              "pm.test('Response indicates success', function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData.success).to.eql(true);",
+              "    pm.expect(jsonData.data).to.exist;",
+              "});"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "default"
+    }
+  ]
+}
+
