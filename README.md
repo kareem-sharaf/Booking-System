@@ -41,3 +41,7 @@ Laravel 10 + Filament admin panel that manages bookings, users, and supporting r
 
 ## Postman Collection
 - The `postman_collection.json` file in the project root contains predefined API requests. Import it into Postman to explore and test the endpoints quickly.
+
+## Default Accounts After Seeder
+- Admin: email `admin@booking-system.test`, password `password`.
+- Staff: email `staff@booking-system.test`, password `password`.
