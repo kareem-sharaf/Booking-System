@@ -4,7 +4,7 @@ namespace App\Repositories\Booking;
 
 use App\Models\Booking;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Collection;
 
 interface BookingRepositoryInterface
 {
